@@ -1,0 +1,15 @@
+---
+- name: install pre-requisites
+  pip:
+    name:
+      - pyyaml
+      - openshift
+      - kubernetes
+    extra_args: --ignore-installed
+  run_once: true
+
+- name: "Adding admiralty repository"
+  kubernetes.core.helm_repository:
+    name: admiralty
+    repo_url: "{{ admiralty_repo_url }}"
+  run_once: true

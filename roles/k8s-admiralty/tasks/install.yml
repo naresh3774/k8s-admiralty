@@ -1,0 +1,9 @@
+---
+# install admiralty on master and node clusters
+- name: Install admiralty on master clusters"
+  shell: helm --namespace admiralty upgrade -i admiralty admiralty/multicluster-scheduler --kube-context "{{ item }}" --version="{{ admiralty_version }}" --create-namespace --set installCRDs=true --wait
+  with_items: "{{ master_k8s_contexts }}"
+
+- name: Install admiralty on node clusters"
+  shell: helm --namespace admiralty upgrade -i admiralty admiralty/multicluster-scheduler --kube-context "{{ item }}" --version="{{ admiralty_version }}" --create-namespace --set installCRDs=true --wait
+  with_items: "{{ node_k8s_contexts }}"

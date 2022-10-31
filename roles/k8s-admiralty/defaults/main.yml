@@ -1,0 +1,4 @@
+---
+# Admiralty variables
+admiralty_repo_url: https://charts.admiralty.io
+admiralty_version: 0.15.1

@@ -1,0 +1,7 @@
+---
+# including all required tasks here
+- name: "Add Admiralty helm repository on master and node cluster"
+  include_tasks: helm-repo.yml
+
+- name: "Install Admiralty multicluster on k8s master and node clusters"
+  include_tasks: install.yml

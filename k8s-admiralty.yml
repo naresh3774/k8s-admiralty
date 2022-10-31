@@ -1,0 +1,7 @@
+---
+- name: "*** k8s multicluster using admiralty ***"
+  hosts: masters
+  connection: local
+  become: true
+  roles:
+    - { role: k8s-admiralty}

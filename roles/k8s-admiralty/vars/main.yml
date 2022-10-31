@@ -1,0 +1,8 @@
+---
+# please update all required cluster contexts name here
+
+master_k8s_contexts:
+  - host   #update this
+
+node_k8s_contexts:
+  - member1   #update this
