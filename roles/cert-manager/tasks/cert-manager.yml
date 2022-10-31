@@ -1,0 +1,14 @@
+---
+#  install cert manager
+
+- name: Install Cert Manager on master clusters"
+  shell: helm --namespace cert-manager upgrade -i cert-manager jetstack/cert-manager --kube-context "{{ item }}" --version="{{ cert_version }}" --create-namespace --set installCRDs=true --wait
+  with_items: "{{ master_k8s_contexts }}"
+  tags: 
+    - cert-manager
+
+- name: Install Cert Manager on node clusters"
+  shell: helm --namespace cert-manager upgrade -i cert-manager jetstack/cert-manager --kube-context "{{ item }}" --version="{{ cert_version }}" --create-namespace --set installCRDs=true --wait
+  with_items: "{{ node_k8s_contexts }}"
+  tags: 
+    - cert-manager

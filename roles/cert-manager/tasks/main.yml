@@ -1,0 +1,9 @@
+---
+# including all required tasks here
+- name: "Add cert-manager helm repository on master and node cluster"
+  include_tasks: helm-repo.yml
+
+- name: "Install Cert Manager on k8s master and node clusters"
+  include_tasks: cert-manager.yml
+  tags: 
+    - cert-manager

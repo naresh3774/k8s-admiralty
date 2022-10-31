@@ -1,0 +1,5 @@
+- name: "Adding cert-manager repository"
+  kubernetes.core.helm_repository:
+    name: jetstack
+    repo_url: "{{ cert_manager_repo_url }}"
+  run_once: true
