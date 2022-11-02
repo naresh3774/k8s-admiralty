@@ -68,7 +68,7 @@ spec:
     name: member1
 ```
 ```
-kubectl apply -f admirality-source.yaml -n mpi-jobs --context host
+kubectl apply -f admirality-target.yaml -n mpi-jobs --context host
 ```	
 ## In the workload clusters, create a Source for the management cluster:
 ```
