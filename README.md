@@ -102,8 +102,9 @@ spec:
         - event: TaskCompleted
           action: CompleteJob
       template:
-        annotations:
-          multicluster.admiralty.io/elect: ""
+        metadata:
+          annotations:
+            multicluster.admiralty.io/elect: ""
         spec:
           containers:
             - command:
@@ -123,8 +124,9 @@ spec:
     - replicas: 2
       name: mpiworker
       template:
-        annotations:
-          multicluster.admiralty.io/elect: ""
+        metadata:
+          annotations:
+            multicluster.admiralty.io/elect: ""
         spec:
           containers:
             - command:
