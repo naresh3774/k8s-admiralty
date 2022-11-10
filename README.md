@@ -144,7 +144,5 @@ spec:
           restartPolicy: OnFailure
 EOF
 ```
-```
-kubectl apply -f volcano-example.yaml -n mpi-jobs --context host
-```
+
 This should create pods on both clusters.
