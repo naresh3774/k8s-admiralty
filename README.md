@@ -85,6 +85,7 @@ EOF
 ## Example:
 create a file **volcano-example.yaml** and insert below context
 ```
+cat <<EOF | kubectl -n mpi-jobs --context host apply -f -
 apiVersion: batch.volcano.sh/v1alpha1
 kind: Job
 metadata:
@@ -141,6 +142,7 @@ spec:
                   name: mpijob-port
               workingDir: /home
           restartPolicy: OnFailure
+EOF
 ```
 ```
 kubectl apply -f volcano-example.yaml -n mpi-jobs --context host
