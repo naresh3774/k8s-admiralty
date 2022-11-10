@@ -59,6 +59,7 @@ kubectl -n mpi-jobs --context host create secret generic member1 \
 # Multi-Cluster Scheduling
 ## In the management cluster, create a Target for each workload cluster:
 ```
+cat <<EOF | kubectl --context host apply -f -
 apiVersion: multicluster.admiralty.io/v1alpha1
 kind: Target
 metadata:
@@ -66,22 +67,21 @@ metadata:
 spec:
   kubeconfigSecret:
     name: member1
+EOF
 ```
-```
-kubectl apply -f admirality-target.yaml -n mpi-jobs --context host
-```	
+
 ## In the workload clusters, create a Source for the management cluster:
 ```
+cat <<EOF | kubectl --context member1 apply -f -
 apiVersion: multicluster.admiralty.io/v1alpha1
 kind: Source
 metadata:
   name: host
 spec:
   serviceAccountName: host
+EOF
 ```
-```
-kubectl apply -f admirality-source.yaml -n mpi-jobs --context member1
-```
+
 ## Example:
 create a file **volcano-example.yaml** and insert below context
 ```
